@@ -37,11 +37,6 @@ public class SolutionEx1 {
 
 
 
-
-
-
-
-
 //          System.out.println(week);
 //
 //        System.out.println();

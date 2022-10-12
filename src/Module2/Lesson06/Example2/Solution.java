@@ -3,6 +3,7 @@ package Module2.Lesson06.Example2;
 public class Solution {
     public static void main(String[] args) {
 
+        // РЕАЛИЗАЦИЯ ЛЯМБДЫ С МНОГОСТРОЧНОЙ ЛОГИКОЙ
 
         Calculable summator = ((x, y) -> {
 
@@ -16,8 +17,10 @@ public class Solution {
         System.out.println(a);
 
 
- //       Calculable subtrator = ((x, y) -> x - y);
-//        System.out.println(subtrator.calculate(99, 90));
+        // РЕАЛИЗАЦИЯ ЛЯМБДЫ С ОДНОСТРОЧНОЙ ЛОГИКОЙ
+
+        Calculable subtrator = ((x, y) -> x - y);
+        System.out.println(subtrator.calculate(99, 90));
 
     }
 }

@@ -9,8 +9,10 @@ import java.util.stream.Stream;
 public class Solution1 {
     public static void main(String[] args) throws FileNotFoundException {
 
+        // КОЛЛЕКЦИЯ, В КОТОРОЙ БУДЕМ ХРАНИТЬ ОБЪЕКТЫ Car
         ArrayList<Car> garage = new ArrayList<>();
 
+        // ДОБАВЛЯЕМ ОБЪЕКТЫ В КОЛЛЕКЦИЮ
         garage.add(new Car(Color.RED, "TOYOTA", 150, 1992));
         garage.add(new Car(Color.GREEN, "NISSAN", 200, 2001));
         garage.add(new Car(Color.INDIGO, "HONDA", 220, 2020));
@@ -19,25 +21,30 @@ public class Solution1 {
         garage.add(new Car(Color.YELLOW, "MASERATI", 1000, 1992));
         garage.add(new Car(Color.BLUE, "TESLA", 999, 1993));
 
-
+        // ПОЛУЧАЕМ ОБЪЕКТ СТРИМА ИЗ КОЛЛЕКЦИИ
         Stream<Car> carStream = garage.stream();
+        // ТЕПЕРЬ МОЖЕМ ПОЛЬЗОВАТЬСЯ МЕТОДАМИ СТРИМОВ ПО ОТНОШЕНИЮ К ПОЛУЧЕННОМУ ОБЪЕКТУ:
+
+
         //System.out.println(carStream.anyMatch(car -> car.color == Color.BLUE));// Есть ли хоть одно совпадение?
         System.out.println(carStream.allMatch(car -> car.year == 2020)); // Все ли машины такого-то года?
 
 
         System.out.println();
 
-        List<Car> selected = garage.stream()
-                .filter(car -> car.color.equals(Color.RED))
-                .filter(car -> car.year > 2000)
-                .limit(10)
-                .collect(Collectors.toList());
+        // ПРИМЕР ЦЕПОЧКИ ВЫЗОВОВ
+        List<Car> selected = garage.stream()                // ПОЛУЧАЕМ ОБЪЕКТ СТРИМА // stream source в данном случае garage
+                .filter(car -> car.color.equals(Color.RED)) // ФИЛЬТР - ОБЫЧНАЯ ЛЯМБДА, ГДЕ МЫ САМИ ПИШЕМ РЕАЛИЗАЦИЮ - ФИЛЬТРУЕМСЯ ПО ЦВЕТУ // intermediate method
+                .filter(car -> car.year > 2000)             // ОПЯТЬ ФИЛЬТР - ФИЛЬТРУЕМСЯ ПО ГОДУ // intermediate method
+                .limit(10)                          // ОГРАНИЧИТЕЛЬ ПО КОЛИЧЕСТВУ - ТОЛЬКО ПЕРВЫЕ 10 ОБЪЕКТОВ БУДУТ ВЗЯТЫ // intermediate method
+                .collect(Collectors.toList());              // СОБИРАЕМ ВСЕ В КОЛЛЕКЦИЮ И ВОЗВРАЩАЕМ В ПЕРЕМЕННУЮ selected // terminal method
 
 
         System.out.println(selected);
 
     }
 
+    // ПРИМЕР ФИЛЬТРАЦИИ ПРИ ПОМОЩИ ОБЫЧНОГО МЕТОДА
     private static List<Car> selectByColor(List<Car> list, Color c) {
         List<Car> selected = new ArrayList<>();
 

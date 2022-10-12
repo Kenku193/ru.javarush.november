@@ -1,5 +1,8 @@
 package Module2.Lesson06.Example3;
 
+/**
+ * Обычный класс User с двумя полями, конструктором и toString
+ */
 public class User {
 
     String name;
