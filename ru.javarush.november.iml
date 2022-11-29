@@ -15,5 +15,6 @@
     <orderEntry type="library" name="snakeyaml-1.29" level="project" />
     <orderEntry type="library" name="stax2-api-4.2" level="project" />
     <orderEntry type="library" name="jackson-module-jaxb-annotations-2.11.3" level="project" />
+    <orderEntry type="library" name="lombok-1.18.22" level="project" />
   </component>
 </module>
